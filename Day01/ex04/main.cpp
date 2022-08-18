@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 12:24:48 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/17 15:30:21 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:07:16 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 std::string	ft_replace(std::string recup, std::string find, std::string replace)
 {
 	std::size_t found = recup.find(find);
-	std::string res;
-	if (found != std::string::npos)
+	while (found != std::string::npos)
 	{
-		res = recup.erase(found, find.length());
-		res = res.insert(found, replace);
+		recup.erase(found, find.length());
+		recup.insert(found, found + replace.length());
 	}
-	return res;
+	return recup;
 }
 	
 
