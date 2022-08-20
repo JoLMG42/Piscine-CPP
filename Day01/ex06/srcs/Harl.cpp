@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 15:40:58 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/18 10:44:13 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/18 10:46:51 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,48 @@ void	Harl::error(void)
 	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
+void	no_arg(void)
+{
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+}
+
 void	Harl::complain(std::string level)
 {
-	std::string	arr[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*tab[4])(void);
+	std::string tab[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	tab[0] = &Harl::debug;
-	tab[1] = &Harl::info;
-	tab[2] = &Harl::warning;
-	tab[3] = &Harl::error;
-
+	int	j = -1;
 	for (int i = 0; i < 4; i++)
 	{
-		if (arr[i].compare(level) == 0)
-			(this->*tab[i])();
+		if (level.compare(tab[i]) == 0)
+			j = i;
+		switch (j)
+		{
+			case 0:
+				Harl::debug();
+				Harl::info();
+				Harl::warning();
+				Harl::error();
+				i = 4;
+				break;
+			case 1:
+				Harl::info();
+				Harl::warning();
+				Harl::error();
+				i = 4;
+				break;
+			case 2:
+				Harl::warning();
+				Harl::error();
+				i = 4;
+				break;
+			case 3:
+				Harl::error();
+				i = 4;
+				break;
+			default:
+				if (i == 3)
+					no_arg();
+		}
 	}
 }
 	
