@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 12:27:56 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/24 17:47:14 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/24 23:26:34 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ class	Point
 		Fixed const _y;
 	public:
 		Point();
-		Point(const float x, const float y);
+		Point(Fixed const x, Fixed const y);
 		Point(Point const & cpy);
 		~Point();
 
-		float	getFixed_x(void) const;
-		float	getFixed_y(void) const;
+		Fixed	getFixed_x(void) const;
+		Fixed	getFixed_y(void) const;
                 Point & operator=(Point const & egal);
 };
+
+std::ostream &	operator<<(std::ostream & o, Point const & flux);
 
 #endif

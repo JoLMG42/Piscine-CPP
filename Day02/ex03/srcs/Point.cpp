@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 12:35:26 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/24 17:58:32 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/24 23:26:51 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ Point::Point():_x(0), _y(0)
 	return ;
 }
 
-Point::Point(const float x, const float y):_x(x), _y(y)
+Point::Point(Fixed const x, Fixed const y):_x(x), _y(y)
 {
 	return ;
 }
 
-Point::Point(Point const & cpy)
+Point::Point(Point const & cpy):_x(cpy.getFixed_x()), _y(cpy.getFixed_y())
 {
-	*this = cpy;
 	return ;
 }
 
@@ -33,14 +32,14 @@ Point::~Point()
 	return ;
 }
 
-float Point::getFixed_x(void) const
+Fixed Point::getFixed_x(void) const
 {
-	return (_x.toFloat());
+	return (_x);
 }
 
-float Point::getFixed_y(void) const
+Fixed Point::getFixed_y(void) const
 {
-	return (_y.toFloat());
+	return (_y);
 }
 
 Point & Point::operator=(Point const & egal)
@@ -52,4 +51,10 @@ Point & Point::operator=(Point const & egal)
 		this->_y = egal.getRawBits();
 	}*/
 	return *this;
+}
+
+std::ostream &	operator<<(std::ostream & o, Point const & flux)
+{
+	o << flux.getFixed_x() << flux.getFixed_y();
+	return o;
 }
