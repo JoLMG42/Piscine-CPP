@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:33:48 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/24 11:51:07 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:01:22 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class	Fixed
 {

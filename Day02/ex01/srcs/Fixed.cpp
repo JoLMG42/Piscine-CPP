@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:38:38 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/23 12:11:16 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:56:48 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed(Fixed const & cpy)
 Fixed::Fixed(const float flottant)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_n = (flottant * (1 << _bits));
+	this->_n = roundf((flottant * (1 << _bits)));
 }
 
 Fixed::Fixed(const int entier)
@@ -64,7 +64,7 @@ Fixed &	Fixed::operator=(Fixed const & egal)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float) this->_n / (float)(1 << _bits));
+	return ((float) this->_n / ((float)(1 << _bits)));
 }
 
 int	Fixed::toInt(void) const

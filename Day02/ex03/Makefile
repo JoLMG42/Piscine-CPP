@@ -6,7 +6,7 @@
 #    By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 13:36:18 by jtaravel          #+#    #+#              #
-#    Updated: 2022/08/24 16:54:54 by jtaravel         ###   ########.fr        #
+#    Updated: 2022/08/30 15:02:12 by jtaravel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS =	${SRCS:.cpp=.o}
 
 HEADERS =	includes
 
-NAME =	Fixed
+NAME =	BSP
 
 CC =	c++
 

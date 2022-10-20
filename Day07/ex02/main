@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/27 17:48:18 by jtaravel          #+#    #+#             */
+/*   Updated: 2022/09/28 18:24:58 by jtaravel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Array.hpp"
+
+int	main(void)
+{
+	int	len_tab = 5;
+	Array<int>	tab(len_tab);
+	for (int i = 0; i < len_tab; i++)
+	{
+		tab[i] = i;
+	}
+	for (int i = 0; i < len_tab; i++)
+	{
+		std::cout << tab[i];
+	}
+	std::cout << std::endl;
+	tab[len_tab - 1] = 1;
+	try
+	{
+		int idx = 9;
+		if (idx > len_tab)
+			throw Array<int>::ExceptionThrow();
+	}
+	catch(Array<int>::ExceptionThrow e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	for (int i = 0; i < len_tab; i++)
+	{
+		std::cout << tab[i];
+	}
+	std::cout << std::endl;
+}

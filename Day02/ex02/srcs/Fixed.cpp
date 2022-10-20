@@ -6,7 +6,7 @@
 /*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 13:38:38 by jtaravel          #+#    #+#             */
-/*   Updated: 2022/08/24 12:19:21 by jtaravel         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:01:07 by jtaravel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::Fixed(Fixed const & cpy)
 
 Fixed::Fixed(const float flottant)
 {
-	this->_n = (flottant * (1 << _bits));
+	this->_n = roundf((flottant * (1 << _bits)));
 }
 
 Fixed::Fixed(const int entier)

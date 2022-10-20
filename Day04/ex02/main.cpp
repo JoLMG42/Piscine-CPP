@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jtaravel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/09 17:20:12 by jtaravel          #+#    #+#             */
+/*   Updated: 2022/09/09 18:48:50 by jtaravel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
+#include "WrongAnimal.hpp"
+
+int main()
+{
+	
+	//Animal test;
+	Animal*	tab[10];
+	for (int i = 0; i < 10; i++)
+	{
+		if (i < 5)
+			tab[i] = new Dog();
+		if (i >= 5)
+			tab[i] = new Cat();
+	}
+	for (int j = 0; j < 10; j++)
+	{
+		std::cout << tab[j]->getType() << " " << std::endl;
+		tab[j]->makeSound(); //will output the cat sound!
+	}
+	for (int h = 0; h < 10; h++)
+		delete tab[h];
+	return 0;
+}
